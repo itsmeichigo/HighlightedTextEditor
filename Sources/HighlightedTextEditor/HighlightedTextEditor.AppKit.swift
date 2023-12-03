@@ -34,9 +34,11 @@ public struct HighlightedTextEditor: NSViewRepresentable, HighlightingTextEditor
 
     public init(
         text: Binding<String>,
-        highlightRules: [HighlightRule]
+        highlightRules: [HighlightRule],
+        defaultFont: NSFont = .systemFont(ofSize: NSFont.systemFontSize)
     ) {
         _text = text
+        defaultEditorFont = defaultFont
         self.highlightRules = highlightRules
     }
 
@@ -191,6 +193,7 @@ public extension HighlightedTextEditor {
             textView.maxSize = NSSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
             textView.minSize = NSSize(width: 0, height: contentSize.height)
             textView.textColor = NSColor.labelColor
+            textView.font = defaultEditorFont
             textView.allowsUndo = true
 
             return textView
