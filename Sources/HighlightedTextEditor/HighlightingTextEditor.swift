@@ -16,7 +16,6 @@ public typealias SymbolicTraits = NSFontDescriptor.SymbolicTraits
 public typealias SystemTextView = NSTextView
 public typealias SystemScrollView = NSScrollView
 
-var defaultLineSpacing: CGFloat = 0
 var defaultEditorFont = NSFont.systemFont(ofSize: NSFont.systemFontSize)
 let defaultEditorTextColor = NSColor.labelColor
 

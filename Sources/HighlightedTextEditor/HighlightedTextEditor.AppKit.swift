@@ -35,12 +35,10 @@ public struct HighlightedTextEditor: NSViewRepresentable, HighlightingTextEditor
     public init(
         text: Binding<String>,
         highlightRules: [HighlightRule],
-        defaultFont: NSFont = .systemFont(ofSize: NSFont.systemFontSize),
-        lineSpacing: CGFloat = 0
+        defaultFont: NSFont = .systemFont(ofSize: NSFont.systemFontSize)
     ) {
         _text = text
         defaultEditorFont = defaultFont
-        defaultLineSpacing = lineSpacing
         self.highlightRules = highlightRules
     }
 
@@ -196,9 +194,6 @@ public extension HighlightedTextEditor {
             textView.minSize = NSSize(width: 0, height: contentSize.height)
             textView.textColor = NSColor.labelColor
             textView.font = defaultEditorFont
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = defaultLineSpacing
-            textView.defaultParagraphStyle = paragraphStyle
             textView.allowsUndo = true
 
             return textView
