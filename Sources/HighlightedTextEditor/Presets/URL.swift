@@ -1,15 +1,8 @@
-//
-//  URL.swift
-//  Regex courtesy of https://urlregex.com
-//
-//  Created by Kyle Nazario on 10/25/20.
-//
-
 import Foundation
 import SwiftUI
 
 private let urlRegexPattern =
-    "(?:http|https)://(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?"
+    "https?://(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"
 private let _urlRegex = try! NSRegularExpression(pattern: urlRegexPattern, options: [])
 
 public extension Sequence where Iterator.Element == HighlightRule {
